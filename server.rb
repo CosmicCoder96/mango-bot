@@ -59,6 +59,8 @@ class GHAapp < Sinatra::Application
       repo = payload['repository']['full_name']
       issue_number = payload['issue']['number']
       @installation_client.add_labels_to_an_issue(repo, issue_number, ['kiwi-testing'])
+      @installation_client.add_comment(repo, issue_number, 'Hi, thanks for opening this issue')
+
     end
 
     # Saves the raw payload and converts the payload to JSON format
