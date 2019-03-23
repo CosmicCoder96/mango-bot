@@ -60,6 +60,8 @@ class GHAapp < Sinatra::Application
       issue_number = payload['issue']['number']
       @installation_client.add_labels_to_an_issue(repo, issue_number, ['kiwi-testing'])
       @installation_client.add_comment(repo, issue_number, 'Hi, thanks for opening this issue')
+      @installation_client.add_comment(repo, issue_number, "In case you were wondering: This is the payload which your request generated: #{payload}")
+      # @installation_client.add_assignees(repo, issue_number)
 
     end
 
